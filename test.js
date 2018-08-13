@@ -4,7 +4,7 @@ require('mocha');
 var assert = require('assert');
 var decode = require('./');
 
-describe('unescape', function() {
+describe('unescapeEntity', function() {
   describe('defaults', function() {
     it('should unescape default HTML entities', function() {
       assert.equal(decode('&quot;'), '"');

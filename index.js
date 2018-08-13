@@ -56,7 +56,7 @@ Object.defineProperty(charSets, 'all', {
  * @return {String}
  */
 
-function unescape(str, type) {
+function unescapeEntity(str, type) {
   if (!isString(str)) return '';
   var chars = charSets[type || 'default'];
   var regex = toRegex(type, chars);
@@ -87,10 +87,10 @@ function isString(str) {
  * Expose charSets
  */
 
-unescape.chars = charSets.default;
-unescape.extras = charSets.extras;
+unescapeEntity.chars = charSets.default;
+unescapeEntity.extras = charSets.extras;
 // don't trip the "charSets" getter unless it's explicitly called
-Object.defineProperty(unescape, 'all', {
+Object.defineProperty(unescapeEntity, 'all', {
   get: function() {
     return charSets.all;
   }
@@ -100,4 +100,4 @@ Object.defineProperty(unescape, 'all', {
  * Expose `unescape`
  */
 
-module.exports = unescape;
+module.exports = unescapeEntity;
